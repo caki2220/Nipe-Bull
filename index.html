@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkySMP - Membros com Cargo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Membros com Cargo Especial</h1>
+
+    <div id="member-list"></div>
+
+    <script>
+        // Requisição para obter os membros com o cargo específico
+        fetch('/api/members')
+            .then(response => response.json())
+            .then(data => {
+                const memberList = document.getElementById('member-list');
+                data.forEach(member => {
+                    const memberDiv = document.createElement('div');
+                    memberDiv.classList.add('member');
+                    
+                    const avatar = document.createElement('img');
+                    avatar.src = member.avatar;
+                    avatar.classList.add('perfil-imagem');
+                    
+                    const name = document.createElement('p');
+                    name.textContent = member.username;
+
+                    memberDiv.appendChild(avatar);
+                    memberDiv.appendChild(name);
+                    memberList.appendChild(memberDiv);
+                });
+            });
+    </script>
+</body>
+</html>
