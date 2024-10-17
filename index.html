@@ -3,37 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkySMP - Membros com Cargo</title>
+    <title>SkySMP - Servidor Minecraft</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Membros com Cargo Especial</h1>
+    <header>
+        <img src="imagens/logo.png" alt="Logo SkySMP" id="logo-smp">
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#membros">Membros</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div id="member-list"></div>
+    <section id="intro">
+        <h1>Bem-vindo ao SkySMP</h1>
+        <p>Um servidor único de Minecraft, onde a criatividade e a aventura se encontram nos céus. Junte-se a nós e faça parte dessa comunidade!</p>
+    </section>
 
-    <script>
-        // Requisição para obter os membros com o cargo específico
-        fetch('/api/members')
-            .then(response => response.json())
-            .then(data => {
-                const memberList = document.getElementById('member-list');
-                data.forEach(member => {
-                    const memberDiv = document.createElement('div');
-                    memberDiv.classList.add('member');
-                    
-                    const avatar = document.createElement('img');
-                    avatar.src = member.avatar;
-                    avatar.classList.add('perfil-imagem');
-                    
-                    const name = document.createElement('p');
-                    name.textContent = member.username;
+    <section id="membros">
+        <h2>Membros do SkySMP</h2>
+        <div id="member-list">
+            <!-- Adicione os perfis dos membros aqui -->
+            <div class="member">
+                <img src="imagens/perfil1.png" alt="Perfil Membro 1" class="perfil-imagem">
+                <p>Membro 1</p>
+            </div>
+            <div class="member">
+                <img src="imagens/perfil2.png" alt="Perfil Membro 2" class="perfil-imagem">
+                <p>Membro 2</p>
+            </div>
+            <div class="member">
+                <img src="imagens/perfil3.png" alt="Perfil Membro 3" class="perfil-imagem">
+                <p>Membro 3</p>
+            </div>
+            <!-- Adicione mais membros conforme necessário -->
+        </div>
+    </section>
 
-                    memberDiv.appendChild(avatar);
-                    memberDiv.appendChild(name);
-                    memberList.appendChild(memberDiv);
-                });
-            });
-    </script>
+    <footer id="contato">
+        <p>Entre em contato: <a href="mailto:contato@skysmp.com">contato@skysmp.com</a></p>
+    </footer>
 </body>
 </html>
